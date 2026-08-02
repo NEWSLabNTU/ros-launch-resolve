@@ -1,3 +1,30 @@
+> # ⚠️ ARCHIVED — moved into `play_launch`
+>
+> This repository is **read-only** and no longer developed. Its full history
+> and every file were folded into the `play_launch` repository on 2026-08-03
+> (`git subtree`, so `git log` there covers this repo's commits too):
+>
+> **→ https://github.com/NEWSLabNTU/play_launch — directory `src/ros-launch-resolve/`**
+>
+> The final commit here, `90b18ca`, is the exact tree that was absorbed;
+> nothing was left behind.
+>
+> **Nothing about the layering changed.** This is still RFC-0060 layer 2, still
+> its own cargo workspace, still builds and runs with no ROS installation, and
+> consumers still depend on layers 1–2 and never on layer 3. What went away is
+> the *repository* boundary, which was buying nothing the cargo `exclude` and
+> the resolver-is-a-binary process boundary did not already provide, while
+> costing three levels of submodule nesting. nano-ros RFC-0060 was amended to
+> match (`9baebb2eb`); the reasoning is in
+> `docs/design/launch-toolchain-topology.md` in play_launch.
+>
+> **To build it now:** `git clone https://github.com/NEWSLabNTU/play_launch`
+> then `cargo build -p ros-launch-resolve-cli`. No submodules need
+> initialising and no ROS install is required — verified, 10.9s from cold.
+>
+> The `ros-launch-manifest` dependency is now a git dependency pinned to
+> `v0.1.0` rather than a submodule.
+
 # ros-launch-resolve
 
 Resolve a ROS 2 launch tree into a checked **SystemModel**.
